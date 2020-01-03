@@ -1,0 +1,33 @@
+.body {
+  background: url('top-image.jpeg') fixed;
+  height: 800px;
+  background-size: cover;
+  z-index: 1;
+  position: relative;
+}
+.top {
+  font-size: 100px;
+  font-family: serif;
+  z-index: 3;
+  position: absolute;
+  top: 10px;
+  left: 190px;
+}
+
+.button {
+  display: inline-block;
+  width: 300px;
+  padding: 40px;
+  // margin: 10px;
+  border-radius: 4px;
+  background-color: blue;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-size: 50px;
+  text-align: center;
+  position: absolute;
+  top: 300px;
+  right: 800px;
+  z-index: 3;
+}
