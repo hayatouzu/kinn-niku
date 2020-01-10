@@ -1,0 +1,17 @@
+
+%body
+  %header.header
+    .header__bar
+      %h1.grid-6
+        %a{:href => "/"} 筋肉のつぶやき
+      - if user_signed_in?
+        .user_nav.grid-7
+          %span
+            = current_user.nickname
+.contents.row
+  %p
+    = @nickname
+    さんの投稿一覧
+  - @tweets.each do |tweet|
+    = render partial: "tweets/tweet", locals: { tweet: tweet }
+  = paginate(@tweets)

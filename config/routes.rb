@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'tweets#top'
-  get 'tweets/top/' =>'twseets#search'
+  get 'tweets/top' =>'twseets#search'
   resources :tweets do
     resources :comments, only: [:create]
   end

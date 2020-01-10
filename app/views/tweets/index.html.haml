@@ -1,6 +1,7 @@
 -# .body　これで画像入れる？
+= render partial: "header"
 .contents.row
-  = render partial: "header"
   - @tweets.each do |tweet|
     = render partial: "tweet", locals: { tweet: tweet }
   = paginate(@tweets)
+  = render "tweets/footer"
