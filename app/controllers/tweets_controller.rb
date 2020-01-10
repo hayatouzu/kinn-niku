@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-  # before_action :move_to_index, except: [:index, :show]
+  before_action :move_to_index, except: [:index, :show]
 
   def index
     @tweets = Tweet.includes(:user).page(params[:page]).per(5).order("created_at DESC")
@@ -17,9 +17,9 @@ class TweetsController < ApplicationController
     tweet.destroy if tweet.user_id == current_user.id
     if tweet.user_id == current_user.id
       tweet.destroy
-      end
+    end
   end
-end
+
 
   def edit
     @tweet = Tweet.find(params[:id])
@@ -33,15 +33,19 @@ end
   end
 
   def show
+    binding.pry
     @tweet = Tweet.find(params[:id])
     @comments = @tweet.comments.includes(:user)
   end
 
   private
-    def tweet_params
-      params.permit(:image, :text)
-    end
 
-    def move_to_index
-      # redirect_to action: :index unless user_signed_in?
-    end
+  def tweet_params
+    params.permit(:image, :text)
+  end
+
+  def move_to_index
+    redirect_to action: :index unless user_signed_in?
+  end
+
+end
